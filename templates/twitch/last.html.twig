@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Last {{username}} achievements{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <ul>
+        {% for achievement in achievements %}
+            <li>
+                <ul>
+                    <li>{{achievement['GameTitle']}}</li>
+                    <li><img src="https://retroachievements.org{{achievement['GameIcon']}}"></li>
+                    <li><img src="https://retroachievements.org{{achievement['BadgeURL']}}"></li>
+                    <li>{{achievement['Title']}}</li>
+                    <li>{{achievement['Description']}}</li>
+                    <li>{{achievement['Points']}} points</li>
+                    <li>{{achievement['ConsoleName']}}</li> 
+                    <li>{{achievement['Date']}}</li> 
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
